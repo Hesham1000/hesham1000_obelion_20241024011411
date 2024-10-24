@@ -1,0 +1,24 @@
+{
+    "name": "frontend-code",
+    "version": "0.0.0",
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "jest",
+        "client": "npm run --prefix client start"
+    },
+    "dependencies": {
+        "react": "17.0.2",
+        "eslint": "latest",
+        "regular dependencies": "react",
+        "version": "latest",
+        "lodash": "latest",
+        "axios": "latest"
+    },
+    "devDependencies": {
+        "axios": "0.21.1",
+        "webpack": "latest",
+        "react": "latest",
+        "eslint": "latest"
+    }
+}
