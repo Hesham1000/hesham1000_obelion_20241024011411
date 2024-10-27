@@ -1,49 +1,48 @@
-```javascript
-// todoApp/backend/models/User.js
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../../database/connection');
+const { Model, Sequelize } = require('sequelize');
 const bcrypt = require('bcrypt');
+const sequelize = new Sequelize('todoApp', 'root', 'root', {
+  host: 'localhost',
+  port: 3306,
+  dialect: 'mysql'
+});
 
 class User extends Model {
   static init(sequelize) {
     super.init({
-      id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
-      },
       email: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: false,
         unique: true,
         validate: {
-          isEmail: true,
-        },
+          isEmail: true
+        }
       },
       password: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: false,
-      },
-    }, { 
-      sequelize, 
-      modelName: 'User', 
-      tableName: 'Users',
-      timestamps: false,
-      hooks: {
-        beforeCreate: async (user) => {
-          const salt = await bcrypt.genSalt(10);
-          user.password = await bcrypt.hash(user.password, salt);
-        },
-      },
+        validate: {
+          len: [6, 100]
+        }
+      }
+    }, {
+      sequelize,
+      modelName: 'User',
+      tableName: 'users',
+      timestamps: false
+    });
+
+    // Hash password before saving
+    this.beforeSave(async (user, options) => {
+      if (user.changed('password')) {
+        user.password = await bcrypt.hash(user.password, 10);
+      }
     });
   }
 
-  async validPassword(password) {
+  // Method to compare password with the hashed password in the database
+  async validatePassword(password) {
     return await bcrypt.compare(password, this.password);
   }
 }
 
-User.init(sequelize);
-
 module.exports = User;
-```

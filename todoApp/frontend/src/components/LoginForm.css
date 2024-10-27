@@ -1,61 +1,107 @@
-.login-form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #f4f4f9;
+/* LoginForm.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
-.login-form {
-  width: 100%;
-  max-width: 400px;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
-.login-form h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #333333;
-  text-align: center;
+.header {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 20px;
 }
 
-.login-form input[type="email"],
-.login-form input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #dddddd;
-  border-radius: 4px;
-  font-size: 16px;
+.nav-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
-.login-form button {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  color: #ffffff;
-  font-size: 16px;
-  cursor: pointer;
+.nav-tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    cursor: pointer;
+    background-color: #e9ecef;
+    border-radius: 5px;
 }
 
-.login-form button:hover {
-  background-color: #0056b3;
+.nav-tab.active {
+    background-color: #007bff;
+    color: #fff;
 }
 
-.login-form a {
-  display: block;
-  text-align: center;
-  margin-top: 15px;
-  color: #007bff;
-  text-decoration: none;
+.form-group {
+    margin-bottom: 15px;
 }
 
-.login-form a:hover {
-  text-decoration: underline;
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.additional-links {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.additional-links a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.additional-links a:hover {
+    text-decoration: underline;
+}
+
+.primary-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.primary-button:hover {
+    background-color: #218838;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8em;
+}
+
+.footer a {
+    color: #333;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
 }
